@@ -1,0 +1,9 @@
+D:\ASW projekat\ASW\ASW\obj\Debug\ASW.csprojResolveAssemblyReference.cache
+D:\ASW projekat\ASW\ASW\obj\Debug\ASW.Properties.Resources.resources
+D:\ASW projekat\ASW\ASW\obj\Debug\ASW.csproj.GenerateResource.Cache
+D:\ASW projekat\ASW\ASW\bin\Debug\ASW.exe
+D:\ASW projekat\ASW\ASW\bin\Debug\ASW.pdb
+D:\ASW projekat\ASW\ASW\bin\Debug\ASW_BLL.dll
+D:\ASW projekat\ASW\ASW\bin\Debug\ASW_BLL.pdb
+D:\ASW projekat\ASW\ASW\obj\Debug\ASW.exe
+D:\ASW projekat\ASW\ASW\obj\Debug\ASW.pdb
