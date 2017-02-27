@@ -7,3 +7,12 @@ d:\documents\visual studio 2013\Projects\ASW\ASW_DAL\bin\Debug\EntityFramework.x
 d:\documents\visual studio 2013\Projects\ASW\ASW_DAL\bin\Debug\EntityFramework.SqlServer.xml
 d:\documents\visual studio 2013\Projects\ASW\ASW_DAL\obj\Debug\ASW_DAL.dll
 d:\documents\visual studio 2013\Projects\ASW\ASW_DAL\obj\Debug\ASW_DAL.pdb
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\ASW_DAL.dll.config
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\ASW_DAL.dll
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\ASW_DAL.pdb
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\EntityFramework.dll
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\EntityFramework.xml
+D:\ASW projekat\ASW\ASW_DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\ASW projekat\ASW\ASW_DAL\obj\Debug\ASW_DAL.dll
+D:\ASW projekat\ASW\ASW_DAL\obj\Debug\ASW_DAL.pdb
