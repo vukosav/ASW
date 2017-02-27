@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae43ed2c3ec541e39eafd57f2dcf4af2" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="ASWModel.Acceptance" Width="1.5" PointX="7.875" PointY="15.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Device" Width="1.5" PointX="8.125" PointY="11.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.DeviceLifeCycle" Width="1.5" PointX="11.75" PointY="11.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.DeviceStatu" Width="1.5" PointX="11.125" PointY="9.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.DeviceType" Width="1.5" PointX="6.25" PointY="12.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Document" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.DocumentDeliveryDetail" Width="1.5" PointX="7.75" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.DocumentType" Width="1.5" PointX="3" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Faulty" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Guaranty" Width="1.5" PointX="7.875" PointY="1.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Log" Width="1.5" PointX="0.625" PointY="10.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Partner" Width="1.5" PointX="3" PointY="6.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.PartnerType" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.Setting" Width="1.5" PointX="13" PointY="1.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.ShippingType" Width="1.5" PointX="14.25" PointY="10.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.sysdiagram" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.TestStatu" Width="1.5" PointX="12.875" PointY="13.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.UserRole" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ASWModel.User" Width="1.5" PointX="3" PointY="11.625" IsExpanded="false" />
+        <AssociationConnector Association="ASWModel.FK_Acceptance_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Acceptance_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Device_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DeviceLifeCycle_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DocumentDeliveryDetails_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Faulty_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Faulty_Device1" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DeviceLifeCycle_DeviceStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DeviceLifeCycle_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DeviceLifeCycle_ShippingType" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DeviceLifeCycle_TestStatus" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ASWModel.FK_Document_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Document_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Document_Partners1" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Document_Partners2" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Document_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DocumentDeliveryDetails_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DocumentDeliveryDetails_Guaranty" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_DocumentDeliveryDetails_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Faulty_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Faulty_Partners1" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Faulty_ShippingType" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Logs_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Partners_PartnerType" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_TestStatus_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="ASWModel.FK_Users_UserRoles1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

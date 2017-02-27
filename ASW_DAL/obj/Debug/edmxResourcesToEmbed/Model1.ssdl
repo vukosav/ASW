@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acceptance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AcceptanceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AcceptanceDate" Type="datetime" />
+    <Property Name="DeviceID" Type="int" />
+    <Property Name="AcceptanceSerialNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ArrivedYesNo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DeviceTypeID" Type="int" />
+    <Property Name="SerialName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SerialsMatch" Type="nvarchar" MaxLength="50" />
+    <Property Name="Generation" Type="int" />
+  </EntityType>
+  <EntityType Name="DeviceLifeCycle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DeviceID" Type="int" />
+    <Property Name="DocumentID" Type="int" />
+    <Property Name="DeviceStatusID" Type="int" />
+    <Property Name="TestStatusID" Type="int" />
+    <Property Name="ShippingTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="DeviceStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DeviceStatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DemoReturnSold" Type="nvarchar" MaxLength="50" />
+    <Property Name="DemoNotes" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReplacedDongle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="StatusDateChanged" Type="datetime" />
+    <Property Name="Replacement" Type="bit" />
+    <Property Name="ReplacedWith" Type="nvarchar" MaxLength="50" />
+    <Property Name="FujitsuNotes" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DeviceType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DeviceTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocumentTypeID" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="DocDate" Type="datetime" />
+    <Property Name="ConsigneeID" Type="int" />
+    <Property Name="CourierID" Type="int" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeliveryNoteNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShippingTerminal" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentTerms" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrencyCurrency" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddAttention" Type="nvarchar" MaxLength="50" />
+    <Property Name="TrackingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorShippInvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeliveryReference" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DocumentDeliveryDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocumentID" Type="int" />
+    <Property Name="NrNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Project" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberOfPackages" Type="int" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="DeviceID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="GuarantyID" Type="int" />
+    <Property Name="CRMID1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CRMID2" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndUser" Type="int" />
+    <Property Name="Dimensions" Type="nvarchar" MaxLength="50" />
+    <Property Name="WarrantyExpirationDate" Type="date" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocTypeDescription" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="Faulty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RMANo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaultySerialNo" Type="int" />
+    <Property Name="Distributor" Type="int" />
+    <Property Name="Customer" Type="int" />
+    <Property Name="FaultyUnitCondition" Type="nvarchar" MaxLength="50" />
+    <Property Name="ASAction" Type="int" />
+    <Property Name="ReplacementSerialNo" Type="int" />
+    <Property Name="HardwareRecFromCust" Type="bit" />
+    <Property Name="FaultyRecDate" Type="datetime" />
+    <Property Name="DocumentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Guaranty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Standard" Type="nvarchar" MaxLength="50" />
+    <Property Name="years2" Type="nvarchar" MaxLength="50" />
+    <Property Name="years3" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="LogActionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogDateTime" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PartnerTypeID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CRMID1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CRMID2" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PartnerType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="PartnerTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataString" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DataLong" Type="bigint" />
+    <Property Name="DataDateTime" Type="datetime" />
+    <Property Name="DataImage" Type="image" />
+    <Property Name="DataBool" Type="bit" />
+    <Property Name="DataDecimal" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ShippingType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ShippingTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OffStockInHouse" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TestStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TestStatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="TestingDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="UserRoleID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiveEmails" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CanEdit" Type="bit" />
+    <Property Name="CanDelete" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Acceptance_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="Acceptance" Type="Self.Acceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Acceptance">
+        <PropertyRef Name="DeviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acceptance_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Acceptance" Type="Self.Acceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Acceptance">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Device_DeviceType">
+    <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="0..1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeviceType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="DeviceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceLifeCycle_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="DeviceLifeCycle" Type="Self.DeviceLifeCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceLifeCycle">
+        <PropertyRef Name="DeviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceLifeCycle_DeviceStatus">
+    <End Role="DeviceStatus" Type="Self.DeviceStatus" Multiplicity="0..1" />
+    <End Role="DeviceLifeCycle" Type="Self.DeviceLifeCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeviceStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceLifeCycle">
+        <PropertyRef Name="DeviceStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceLifeCycle_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+    <End Role="DeviceLifeCycle" Type="Self.DeviceLifeCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceLifeCycle">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceLifeCycle_ShippingType">
+    <End Role="ShippingType" Type="Self.ShippingType" Multiplicity="0..1" />
+    <End Role="DeviceLifeCycle" Type="Self.DeviceLifeCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShippingType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceLifeCycle">
+        <PropertyRef Name="ShippingTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceLifeCycle_TestStatus">
+    <End Role="TestStatus" Type="Self.TestStatus" Multiplicity="0..1" />
+    <End Role="DeviceLifeCycle" Type="Self.DeviceLifeCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceLifeCycle">
+        <PropertyRef Name="TestStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="DocumentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Partners">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Partners1">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="CourierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Partners2">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="ConsigneeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentDeliveryDetails_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="DocumentDeliveryDetails" Type="Self.DocumentDeliveryDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentDeliveryDetails">
+        <PropertyRef Name="DeviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentDeliveryDetails_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+    <End Role="DocumentDeliveryDetails" Type="Self.DocumentDeliveryDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentDeliveryDetails">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentDeliveryDetails_Guaranty">
+    <End Role="Guaranty" Type="Self.Guaranty" Multiplicity="0..1" />
+    <End Role="DocumentDeliveryDetails" Type="Self.DocumentDeliveryDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guaranty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentDeliveryDetails">
+        <PropertyRef Name="GuarantyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentDeliveryDetails_Partners">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="DocumentDeliveryDetails" Type="Self.DocumentDeliveryDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentDeliveryDetails">
+        <PropertyRef Name="EndUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faulty_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="Faulty" Type="Self.Faulty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Faulty">
+        <PropertyRef Name="FaultySerialNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faulty_Device1">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="Faulty" Type="Self.Faulty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Faulty">
+        <PropertyRef Name="ReplacementSerialNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faulty_Partners">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Faulty" Type="Self.Faulty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Faulty">
+        <PropertyRef Name="Distributor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faulty_Partners1">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Faulty" Type="Self.Faulty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Faulty">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faulty_ShippingType">
+    <End Role="ShippingType" Type="Self.ShippingType" Multiplicity="0..1" />
+    <End Role="Faulty" Type="Self.Faulty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShippingType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Faulty">
+        <PropertyRef Name="ASAction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Logs_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Logs">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partners_PartnerType">
+    <End Role="PartnerType" Type="Self.PartnerType" Multiplicity="0..1" />
+    <End Role="Partners" Type="Self.Partners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartnerType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Partners">
+        <PropertyRef Name="PartnerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TestStatus_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="TestStatus" Type="Self.TestStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TestStatus">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles1">
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRoles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASWModelStoreContainer">
+    <EntitySet Name="Acceptance" EntityType="Self.Acceptance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceLifeCycle" EntityType="Self.DeviceLifeCycle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceStatus" EntityType="Self.DeviceStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentDeliveryDetails" EntityType="Self.DocumentDeliveryDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faulty" EntityType="Self.Faulty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guaranty" EntityType="Self.Guaranty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerType" EntityType="Self.PartnerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippingType" EntityType="Self.ShippingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TestStatus" EntityType="Self.TestStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Acceptance_Device" Association="Self.FK_Acceptance_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Acceptance" EntitySet="Acceptance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acceptance_Users" Association="Self.FK_Acceptance_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Acceptance" EntitySet="Acceptance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Device_DeviceType" Association="Self.FK_Device_DeviceType">
+      <End Role="DeviceType" EntitySet="DeviceType" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceLifeCycle_Device" Association="Self.FK_DeviceLifeCycle_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="DeviceLifeCycle" EntitySet="DeviceLifeCycle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceLifeCycle_DeviceStatus" Association="Self.FK_DeviceLifeCycle_DeviceStatus">
+      <End Role="DeviceStatus" EntitySet="DeviceStatus" />
+      <End Role="DeviceLifeCycle" EntitySet="DeviceLifeCycle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceLifeCycle_Document" Association="Self.FK_DeviceLifeCycle_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DeviceLifeCycle" EntitySet="DeviceLifeCycle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceLifeCycle_ShippingType" Association="Self.FK_DeviceLifeCycle_ShippingType">
+      <End Role="ShippingType" EntitySet="ShippingType" />
+      <End Role="DeviceLifeCycle" EntitySet="DeviceLifeCycle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceLifeCycle_TestStatus" Association="Self.FK_DeviceLifeCycle_TestStatus">
+      <End Role="TestStatus" EntitySet="TestStatus" />
+      <End Role="DeviceLifeCycle" EntitySet="DeviceLifeCycle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Partners" Association="Self.FK_Document_Partners">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Partners1" Association="Self.FK_Document_Partners1">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Partners2" Association="Self.FK_Document_Partners2">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Users" Association="Self.FK_Document_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentDeliveryDetails_Device" Association="Self.FK_DocumentDeliveryDetails_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="DocumentDeliveryDetails" EntitySet="DocumentDeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentDeliveryDetails_Document" Association="Self.FK_DocumentDeliveryDetails_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DocumentDeliveryDetails" EntitySet="DocumentDeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentDeliveryDetails_Guaranty" Association="Self.FK_DocumentDeliveryDetails_Guaranty">
+      <End Role="Guaranty" EntitySet="Guaranty" />
+      <End Role="DocumentDeliveryDetails" EntitySet="DocumentDeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentDeliveryDetails_Partners" Association="Self.FK_DocumentDeliveryDetails_Partners">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="DocumentDeliveryDetails" EntitySet="DocumentDeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faulty_Device" Association="Self.FK_Faulty_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Faulty" EntitySet="Faulty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faulty_Device1" Association="Self.FK_Faulty_Device1">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Faulty" EntitySet="Faulty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faulty_Partners" Association="Self.FK_Faulty_Partners">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Faulty" EntitySet="Faulty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faulty_Partners1" Association="Self.FK_Faulty_Partners1">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Faulty" EntitySet="Faulty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faulty_ShippingType" Association="Self.FK_Faulty_ShippingType">
+      <End Role="ShippingType" EntitySet="ShippingType" />
+      <End Role="Faulty" EntitySet="Faulty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Logs_Users" Association="Self.FK_Logs_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Logs" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partners_PartnerType" Association="Self.FK_Partners_PartnerType">
+      <End Role="PartnerType" EntitySet="PartnerType" />
+      <End Role="Partners" EntitySet="Partners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TestStatus_Users1" Association="Self.FK_TestStatus_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TestStatus" EntitySet="TestStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles1" Association="Self.FK_Users_UserRoles1">
+      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
